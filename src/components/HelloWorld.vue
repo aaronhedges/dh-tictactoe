@@ -10,7 +10,13 @@
     </p>
     <div class="board">
       <div class="row" v-for='row in board'>
-        <span class="cell" v-for='cell in row'>{{ cell.slice(2).toString() }}</span>
+        <button 
+          class="cell" 
+          v-for='cell in row'
+          v-on:click='playerMove(cell)'
+        >
+          {{ cell.slice(2).toString() }}
+        </button>
       </div>
     </div>
   </div>
@@ -42,6 +48,12 @@ export default {
   },
   props: {
     msg: String
+  },
+  methods: {
+    playerMove: function (cell) {
+      alert('player move made')
+      alert(cell)
+    }
   }
 }
 </script>
