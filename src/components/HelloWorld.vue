@@ -5,8 +5,14 @@
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
 
+      <!-- {{ this.board }} -->
+    </p>
+    <div class="board">
+      <div class="row" v-for='row in board'>
+        <span class="cell" v-for='cell in row'>{{ cell.slice(2).toString() }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,19 +23,19 @@ export default {
     return {
       board: [ 
         [
-          [0,0,null],
-          [0,1,null],
-          [0,2,null]
+          [0,0,'x'],
+          [0,1,'o'],
+          [0,2,'x']
         ],
         [
-          [1,0,null],
-          [1,1,null],
-          [1,2,null]
+          [1,0,'o'],
+          [1,1,'x'],
+          [1,2,'o']
         ],
         [
-          [2,0,null],
-          [2,1,null],
-          [2,2,null]
+          [2,0,'o'],
+          [2,1,'o'],
+          [2,2,'x']
         ]
       ],
     };
@@ -56,4 +62,15 @@ li {
 a {
   color: #42b983;
 }
+.board {
+  max-width: 200px;
+}
+.row {
+   
+} 
+.cell {
+  padding: .5em;
+}
+
+
 </style>
